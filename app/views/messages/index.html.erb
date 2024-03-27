@@ -1,6 +1,29 @@
 <h1>Messages</h1>
 
-<div data-controller="message">
+<div data-controller="message" class="mb-5">
   <input data-message-target="name" type="text">
   <button data-action="click->message#greet">Greet</button>
+</div>
+
+<div class="columns is-multiline" data-controller="step" >
+  <section class="column hero is-info is-full" data-step-target="step1" >
+    <div class="hero-body">
+      <p class="title">Elemento Hijo 1</p>
+      <button class="button is-primary" data-action="click->step#nextStep" data-next-step="step1"> Next Step </button>
+    </div>
+  </section>
+
+  <section class="column hero is-warning is-full is-hidden" data-step-target="step2">
+    <div class="hero-body">
+      <p class="title">Elemento Hijo 2</p>
+      <button class="button is-primary" data-action="click->step#nextStep" data-next-step="step2"> Next Step </button>
+    </div>
+  </section>
+
+  <section class="column hero is-danger is-full is-hidden" data-step-target="step3">
+    <div class="hero-body">
+      <p class="title">Elemento Hijo 3</p>
+      <button class="button is-primary" data-action="click->step#nextStep" data-next-step="step3"> Next Step </button>
+    </div>
+  </section>
 </div>

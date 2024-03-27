@@ -4,10 +4,6 @@ export default class extends Controller {
 
   static targets = [ "name" ]
 
-  connect() {
-    console.log("Que la mame Richard", this.element);
-  }
-
   greet() {
     console.log("Que la mame ", this.name);
   }
