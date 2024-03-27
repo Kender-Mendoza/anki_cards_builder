@@ -1,0 +1,4 @@
+<%= tag.div(id: dom_id(message), class: "") do %>
+  <%= tag.div(message_content, class: class_names("has-text-success" => recent_message?, "has-text-danger" => !recent_message?)) %>
+  <%= tag.time(timestamp, class: "has-text-primary	") %>
+<% end %>
