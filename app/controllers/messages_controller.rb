@@ -21,11 +21,8 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
-    @message = Message.new(message_params)
-
-    if @message.save
-      Broadcast::Message.append(message: @message)
-    end
+    @message = Message.create!(message_params)
+    @message.avatar.attach(params[:message][:avatar])
 
     respond_to do |format|
       format.html { redirect_to message_url(@message), notice: "Message was successfully created." }
@@ -57,13 +54,14 @@ class MessagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @message = Message.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def message_params
-      params.permit(:content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_message
+    @message = Message.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def message_params
+    params.permit(:contentm, :avatar)
+  end
 end
