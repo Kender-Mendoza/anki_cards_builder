@@ -10,7 +10,7 @@
   <%= render "form" %>
 </div>
 
-<div data-controller="message" class="mb-5">
+<div data-controller="message" data-message-url-value="/messages" class="mb-5">
   <input data-message-target="name" type="text">
   <button data-action="click->message#greet">Greet</button>
 </div>
