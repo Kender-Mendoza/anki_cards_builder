@@ -22,11 +22,20 @@ class MessagesController < ApplicationController
   # POST /messages or /messages.json
   def create
     @message = Message.create!(message_params)
-    @message.avatar.attach(params[:message][:avatar])
+    # @message.avatar.attach(params[:message][:avatar])
 
-    respond_to do |format|
-      format.html { redirect_to message_url(@message), notice: "Message was successfully created." }
-      format.turbo_stream
+    # respond_to do |format|
+    #   format.html { redirect_to message_url(@message), notice: "Message was successfully created." }
+    #   format.turbo_stream
+    # end
+
+    if @message.save
+      Turbo::StreamsChannel.broadcast_append_to(
+        'step_container',
+        html: render_to_string(Step::FirstComponent.new(first: "Este es el primer elemento"))
+      )
+    else
+      render :new, flash.now[:notice] = "Message not sent"
     end
   end
 

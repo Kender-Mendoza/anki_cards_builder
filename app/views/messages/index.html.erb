@@ -4,7 +4,7 @@
   <h1>Messages</h1>
 
   <div id="messages">
-    <%= render MessageComponent.with_collection(@messages) %>
+    <%# render MessageComponent.with_collection(@messages) %>
   </div>
 
   <%= render "form" %>
@@ -37,3 +37,11 @@
     </div>
   </section>
 </div>
+
+<br>
+
+<div class="columns is-multiline"  id="step_container">
+  <%= render Step::StepComponent.new(step: "From here we wanna to upload a file") %>
+</div>
+
+<turbo-cable-stream-source channel="Turbo::StreamsChannel" signed-stream-name="steps"></turbo-cable-stream-source>
