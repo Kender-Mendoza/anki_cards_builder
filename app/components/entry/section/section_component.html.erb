@@ -1,0 +1,15 @@
+<h2 class="subtitle mb-0 is-size-4"> <%= @name_section %>: </h2>
+
+<div class="is-relative is-inline-flex trigger-to-copy" data-action="mouseleave->entry-section#setCopyMessage" data-controller="entry-section">
+  <span class="tag is-info to-copy-message" data-entry-section-target="copyMessage"> copy </span>
+  <span class="is-clickable is-size-4" data-action="click->entry-section#copy">
+    <strong> <%= @entry_section  %> </strong>
+  </span>
+  <%= hidden_field_tag input_name, @entry_section, data: { "entry-section-target": "term" } %>
+</div>
+
+<% if example?  %>
+  <p> <strong> Example:</strong> <%= @example_section %> </p>
+<% end %>
+
+<hr>
