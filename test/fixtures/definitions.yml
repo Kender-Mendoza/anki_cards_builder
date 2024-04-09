@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  explanation: MyString
-  context: MyString
+  explanation: the explanation of one
+  context: the example of one
   part_of_speach: one
 
 two:
-  explanation: MyString
-  context: MyString
+  explanation: the explanation of two
+  context: the example of two
   part_of_speach: two

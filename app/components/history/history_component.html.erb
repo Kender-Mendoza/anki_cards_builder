@@ -1,0 +1,10 @@
+<div class="column is-half">
+  <div class="notification is-primary">
+    <p class="is-size-4 has-text-centered"> <%= @history.term.capitalize %> </p>
+    <% @history.part_of_speaches.each do |speache| %>
+      <% speache.definitions.each do |definition| %>
+        <p> <strong> <%= speache.speach_type %>: </strong> <%= limit_line_explanation(speache.speach_type, definition.explanation) %>... </p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
