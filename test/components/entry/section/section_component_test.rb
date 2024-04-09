@@ -10,6 +10,7 @@ class Entry::Section::SectionComponentTest < ViewComponent::TestCase
 
     assert_selector div_container_html
     assert_equal(%(<h2 class="subtitle mb-0 is-size-4"> The name: </h2>), section.css('h2').to_html)
+    assert_equal(copy_element_html, section.css('span.tag.is-info.to-copy-message').to_html)
     assert_equal(%(<strong> The section name </strong>), section.css('span > strong').to_html)
     refute_equal(%(<p> <strong> Example:</strong> The example </p>), section.css('p').to_html)
     assert_equal(input_html, section.css('input').to_html)
@@ -24,6 +25,7 @@ class Entry::Section::SectionComponentTest < ViewComponent::TestCase
 
     assert_selector div_container_html
     assert_equal(%(<h2 class="subtitle mb-0 is-size-4"> The name: </h2>), section.css('h2').to_html)
+    assert_equal(copy_element_html, section.css('span.tag.is-info.to-copy-message').to_html)
     assert_equal(%(<strong> The section name </strong>), section.css('span > strong').to_html)
     assert_equal(%(<p> <strong> Example:</strong> The example </p>), section.css('p').to_html)
     assert_equal(input_html, section.css('input').to_html)
@@ -41,5 +43,9 @@ class Entry::Section::SectionComponentTest < ViewComponent::TestCase
     'div.is-relative.is-inline-flex.trigger-to-copy' +
       '[data-action="mouseleave->entry-section#setCopyMessage"]' +
       '[data-controller="entry-section"]'
+  end
+
+  def copy_element_html
+    %(<span class="tag is-info to-copy-message" data-entry-section-target="copyMessage"> copy </span>)
   end
 end
