@@ -1,0 +1,13 @@
+  <section>
+    <%= render Entry::Section::SectionComponent.new(name_section: "Term", entry_section: @entry.term) %>
+
+    <%= render Entry::Section::SectionComponent.new(name_section: "Audio URL", entry_section: @entry.audio_url) %>
+
+    <% @entry.part_of_speaches.each do |speache| %>
+        <% speache.definitions.each do |definition| %>
+          <%= render Entry::Section::SectionComponent.new(name_section: speache.speach_type,
+                                                          entry_section: definition.explanation,
+                                                          example_section: definition.context) %>
+        <% end %>
+    <% end %>
+  </section>

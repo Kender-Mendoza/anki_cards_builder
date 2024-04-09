@@ -8,9 +8,39 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+
+    <%# TODO: move to a file %>
+
+    <style>
+      .trigger-to-copy:hover
+      .to-copy-message {
+        display: inline;
+      }
+
+      .to-copy-message {
+        display: none;
+        position: absolute;
+        top: -15px;
+        right: -25px;
+      }
+
+      .trigger-to-copy:hover
+      span:nth-child(even)
+      strong {
+        color: hsl(171, 100%, 41%);
+      }
+
+      hr {
+        margin-top: 1.3rem;
+        margin-bottom: 1.3rem;
+      }
+    </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    <div>
   </body>
 </html>
