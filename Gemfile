@@ -20,6 +20,7 @@ gem 'nokogiri'
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'dartsass-rails', '~> 0.5.0'
   gem 'pry-rails'
 end
 
