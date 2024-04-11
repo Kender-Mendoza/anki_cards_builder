@@ -1,7 +1,7 @@
 <h2 class="subtitle mb-0 is-size-4"> <%= @name_section %>: </h2>
 
-<div class="is-relative is-inline-flex trigger-to-copy" data-action="mouseleave->entry-section#setCopyMessage" data-controller="entry-section">
-  <span class="tag is-info to-copy-message" data-entry-section-target="copyMessage"> copy </span>
+<div class="is-relative is-inline-flex entry-section" data-action="mouseleave->entry-section#setCopyMessage" data-controller="entry-section">
+  <span class="tag is-info entry-section__copy-button" data-entry-section-target="copyMessage"> copy </span>
   <span class="is-clickable is-size-4" data-action="click->entry-section#copy">
     <strong> <%= @entry_section  %> </strong>
   </span>
