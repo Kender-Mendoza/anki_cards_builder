@@ -13,6 +13,8 @@ class History::HistoryComponentTest < ViewComponent::TestCase
     assert_equal(p_explanation_html, history_component.css('p:nth-child(2)').to_html)
   end
 
+  private
+
   def p_term_html
     %(<p class="is-size-4 has-text-centered"> Great </p>)
   end

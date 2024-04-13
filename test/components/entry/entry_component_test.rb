@@ -27,7 +27,7 @@ class Entry::EntryComponentTest < ViewComponent::TestCase
     # Matches
     assert_equal entry_component.css('hr').count, 3
     assert_equal entry_component.css(div_container_html).count, 3
-    assert_equal entry_component.css('span.tag.is-info.to-copy-message').count, 3
+    assert_equal entry_component.css('span.tag.is-info.entry-section__copy-button').count, 3
   end
 
   def input_html(id, value)
@@ -36,12 +36,8 @@ class Entry::EntryComponentTest < ViewComponent::TestCase
   end
 
   def div_container_html
-    'div.is-relative.is-inline-flex.trigger-to-copy' +
+    'div.is-relative.is-inline-flex.entry-section' +
       '[data-action="mouseleave->entry-section#setCopyMessage"]' +
       '[data-controller="entry-section"]'
-  end
-
-  def copy_element_html
-    %(<span class="tag is-info to-copy-message" data-entry-section-target="copyMessage"> copy </span>)
   end
 end
