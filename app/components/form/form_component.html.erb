@@ -1,0 +1,7 @@
+<%= form_with(url: entries_path, id: "new_entrie_form") do |form| %>
+  <%= form.text_field :term, placeholder: "What do you want to search?", class: "input", data: { "entry-target": "term" } %>
+
+  <div class="buttons mt-2">
+    <%= form.submit "Search", class: "button is-primary is-fullwidth" %>
+  </div>
+<% end %>
