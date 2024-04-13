@@ -12,7 +12,7 @@ class EntriesController < ApplicationController # :nodoc:
       if @entry.valid?
         format.turbo_stream
       else
-        format.turbo_stream { redirect_to entries_path, notice: 'Mensaje de aviso aquí turbo' }
+        format.turbo_stream { redirect_to entries_path, notice: 'Error when search the word' }
       end
     end
   end
