@@ -32,12 +32,11 @@ class EntryTest < ActiveSupport::TestCase
   end
 
   test 'search or create new entry without exist entry' do
-    example = 'example'
-    Entries::Search.stub(:new, ->(_example) { OpenStruct.new(call: mock_entry_data_parsed) }) do
-      entry = Entry.search_or_create!(example)
+    word = 'example'
+    Entries::Search.stub(:new, ->(_word) { OpenStruct.new(call: mock_entry_data_parsed) }) do
+      entry = Entry.search_or_create!(word)
 
-
-      assert_equal example, entry.term
+      assert_equal word, entry.term
       assert_equal 'https://audio.example.com/test.mp3', entry.audio_url
 
       assert_equal 1, entry.part_of_speaches.count
@@ -53,13 +52,29 @@ class EntryTest < ActiveSupport::TestCase
 
   test 'search or create new entry error handling' do
     word = 'error_word'
-    Entries::Search.stub(:new, ->(_word) { raise StandardError.new('Error fetching data') }) do
+    Entries::Search.stub(:new, ->(_word) { raise StandardError, 'Error fetching data' }) do
       entry = Entry.search_or_create!(word)
 
       assert_instance_of Entry, entry
       assert_nil entry.id
       assert_nil entry.term
     end
+  end
+
+  test 'create part of speaches!' do
+    data = mock_entry_data_parsed
+    entry = Entry.create!(term: data[:term], audio_url: data[:audio_url])
+    entry.create_part_of_speaches!(data[:meanings])
+
+    meaning = entry.part_of_speaches.first
+    definition = meaning.definitions.first
+
+    data_meaning = data[:meanings].first
+    data_definition = data_meaning[:definitions].first
+
+    assert_equal meaning.speach_type, data_meaning[:speach_type]
+    assert_equal definition.explanation, data_definition[:explanation]
+    assert_equal definition.context, data_definition[:context]
   end
 
   private
@@ -72,7 +87,7 @@ class EntryTest < ActiveSupport::TestCase
         {
           speach_type: 'noun',
           definitions: [
-            { explanation: 'a test or trial', context: 'This is a test.' },
+            { explanation: 'a test or trial', context: 'This is a test.' }
           ]
         }
       ]
