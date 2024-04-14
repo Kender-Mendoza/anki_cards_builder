@@ -5,4 +5,10 @@ class PartOfSpeach < ApplicationRecord # :nodoc:
 
   belongs_to :entry
   has_many :definitions
+
+  def create_definitions!(definitions)
+    definitions.each do |definition|
+      self.definitions.create!(definition)
+    end
+  end
 end
