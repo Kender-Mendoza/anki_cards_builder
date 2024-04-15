@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'bootsnap', require: false
+gem 'dartsass-rails'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'nokogiri'
@@ -20,7 +21,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'view_component'
 
 group :development, :test do
-  gem 'dartsass-rails'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'
   gem 'tapioca'
