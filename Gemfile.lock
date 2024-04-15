@@ -97,6 +97,8 @@ GEM
       activesupport (>= 5.0)
     google-protobuf (4.26.1-arm64-darwin)
       rake (>= 13)
+    google-protobuf (4.26.1-x86_64-linux)
+      rake (>= 13)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -141,6 +143,8 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.9)
     nokogiri (1.15.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     parallel (1.24.0)
     prism (0.24.0)
@@ -209,6 +213,8 @@ GEM
     rubyzip (2.3.2)
     sass-embedded (1.74.1-arm64-darwin)
       google-protobuf (>= 3.25, < 5.0)
+    sass-embedded (1.74.1-x86_64-linux-gnu)
+      google-protobuf (>= 3.25, < 5.0)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -217,6 +223,7 @@ GEM
       sorbet-static (= 0.5.11340)
     sorbet-runtime (0.5.11340)
     sorbet-static (0.5.11340-universal-darwin)
+    sorbet-static (0.5.11340-x86_64-linux)
     sorbet-static-and-runtime (0.5.11340)
       sorbet (= 0.5.11340)
       sorbet-runtime (= 0.5.11340)
@@ -233,6 +240,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.6.3-arm64-darwin)
+    sqlite3 (1.6.3-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     stringio (3.1.0)
@@ -280,6 +288,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
