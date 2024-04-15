@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 gem 'bootsnap', require: false
-gem 'dartsass-rails'
+# gem 'dartsass-rails'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'nokogiri'
