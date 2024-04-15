@@ -20,7 +20,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'view_component'
 
 group :development, :test do
-  gem 'dartsass-rails', '~> 0.5.0'
+  gem 'dartsass-rails'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-rails'
   gem 'tapioca'
@@ -33,7 +33,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'rails-controller-testing'
 end
