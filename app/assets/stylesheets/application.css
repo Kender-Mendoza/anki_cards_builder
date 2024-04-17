@@ -13,6 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-
-@use '../../components/entry/section/section_component';

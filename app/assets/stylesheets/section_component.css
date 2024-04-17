@@ -1,0 +1,21 @@
+div.entry-section:hover
+span.entry-section__copy-button {
+  display: inline;
+}
+
+div.entry-section:hover
+span:nth-child(even) strong {
+  color: hsl(171, 100%, 41%);
+}
+
+span.entry-section__copy-button {
+  display: none;
+  position: absolute;
+  top: -15px;
+  right: -25px;
+}
+
+hr {
+  margin-top: 1.3rem;
+  margin-bottom: 1.3rem;
+}
