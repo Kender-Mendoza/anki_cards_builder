@@ -9,9 +9,9 @@
         <%= render Form::FormComponent.new %>
       </div>
 
-      <div class="column is-full is-hidden-mobile">
+      <div class="column is-full">
         <div class="columns is-multiline">
-          <%= render History::HistoryComponent.with_collection(Entry.first(8)) %>
+          <%= render History::HistoryComponent.with_collection(Entry.last(8)) %>
         </div>
       </div>
     </div>

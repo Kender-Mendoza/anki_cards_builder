@@ -1,10 +1,26 @@
-<div class="column is-half">
-  <div class="notification is-primary">
-    <p class="is-size-4 has-text-centered"> <%= @history.term.capitalize %> </p>
-    <% @history.part_of_speaches.each do |speache| %>
-      <% speache.definitions.each do |definition| %>
-        <p> <strong> <%= speache.speach_type %>: </strong> <%= limit_line_explanation(speache.speach_type, definition.explanation) %>... </p>
-      <% end %>
-    <% end %>
+<div class="column is-half is-full-touch">
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <%= media_icon %>
+        </div>
+      </div>
+
+      <div class="content">
+        <h4> <%= @history.term.capitalize %> </h4>
+
+        <p class="is-hidden-overflow">
+          <%= term_content.html_safe %>
+        </p>
+
+        <div class="has-text-right">
+          <%= link_to entry_path(@history), class: "is-size-4 has-text-primary-50",
+                      data: { turbo_stream: true } do %>
+            <i class="fa-solid fa-arrow-right"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

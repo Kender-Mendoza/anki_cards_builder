@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root 'entries#index'
-  resources :entries, only: [:index, :create]
+  resources :entries, only: %i[index create show]
 end
