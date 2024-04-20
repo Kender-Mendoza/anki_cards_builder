@@ -8,7 +8,7 @@ class Entry < ApplicationRecord # :nodoc:
 
   class << self
     def search_or_create!(word)
-      entry = Entry.find_by(term: word.downcase)
+      entry = Entry.find_by(term: word.strip.downcase)
       return entry if entry.present?
 
       ActiveRecord::Base.transaction do
