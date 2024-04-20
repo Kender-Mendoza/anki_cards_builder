@@ -2,6 +2,6 @@
   <%= render Form::FormComponent.new %>
 <% end %>
 
-<%= turbo_stream.replace "term_container" do %>
+<%= turbo_stream.update "term_container" do %>
   <%= render Entry::EntryComponent.new(entry: @entry) %>
 <% end %>
