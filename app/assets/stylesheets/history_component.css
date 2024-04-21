@@ -1,5 +1,45 @@
+.is-bordered {
+  border-width: 1px;
+  border-style: solid;
+  transition: all .2s;
+}
+
+.is-bordered:hover {
+  box-shadow: var(--bulma-card-shadow) !important;
+  transform: scale(1.01);
+}
+
+.is-arrow-animation {
+  display: inline-block;
+}
+
+.card:hover .is-arrow-animation {
+  animation: moverFlecha .5s infinite alternate;
+}
+
 .is-hidden-overflow {
   max-height: 9rem;
   min-height: 9rem;
   overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  .is-bordered {
+    border-color: hsl(221, 14%, 24%);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .is-bordered {
+    border-color: hsl(221, 14%, 86%);
+  }
+}
+
+@keyframes moverFlecha {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(5px);
+  }
 }

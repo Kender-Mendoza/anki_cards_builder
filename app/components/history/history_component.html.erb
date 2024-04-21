@@ -1,26 +1,27 @@
 <div class="column is-half is-full-touch">
-  <div class="card">
-    <div class="card-content">
-      <div class="media">
-        <div class="media-left">
-          <%= media_icon %>
+  <div class="card is-shadowless is-bordered">
+    <%= link_to entry_path(@history), data: { turbo_stream: true } do %>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <%= media_icon %>
+          </div>
+        </div>
+
+        <div class="content">
+          <h4> <%= @history.term.capitalize %> </h4>
+
+          <h6 class="is-hidden-overflow is-size-6 has-text-weight-light">
+            <%= term_content.html_safe %>
+          </h6>
+
+          <div class="has-text-right">
+            <span class="is-size-4 has-text-primary-50 is-arrow-animation">
+              <i class="fa-solid fa-arrow-right"></i>
+            <span>
+          </div>
         </div>
       </div>
-
-      <div class="content">
-        <h4> <%= @history.term.capitalize %> </h4>
-
-        <p class="is-hidden-overflow">
-          <%= term_content.html_safe %>
-        </p>
-
-        <div class="has-text-right">
-          <%= link_to entry_path(@history), class: "is-size-4 has-text-primary-50",
-                      data: { turbo_stream: true } do %>
-            <i class="fa-solid fa-arrow-right"></i>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
