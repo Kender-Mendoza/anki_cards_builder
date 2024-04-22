@@ -1,18 +1,17 @@
-require "test_helper"
+require 'test_helper'
 require 'minitest/autorun'
 
 class EntriesControllerTest < ActionDispatch::IntegrationTest
-
-  test "index" do
+  test 'index' do
     get root_path
 
     assert_response :success
     assert_template :index
     assert_not_nil assigns(:entries)
-    assert_equal 2, assigns(:entries).size
+    assert_equal 9, assigns(:entries).size
   end
 
-  test "create success" do
+  test 'create success' do
     example = 'example'
 
     Entries::Search.stub(:new, ->(_example) { OpenStruct.new(call: mock_entry_data_parsed) }) do
@@ -37,7 +36,7 @@ class EntriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'create failure' do
     word = 'error_word'
-    Entries::Search.stub(:new, ->(_word) { raise StandardError.new('Error fetching data') }) do
+    Entries::Search.stub(:new, ->(_word) { raise StandardError, 'Error fetching data' }) do
       post entries_url(format: :turbo_stream), params: { term: word }
 
       assert_redirected_to entries_path
@@ -55,7 +54,7 @@ class EntriesControllerTest < ActionDispatch::IntegrationTest
         {
           speach_type: 'noun',
           definitions: [
-            { explanation: 'a test or trial', context: 'This is a test.' },
+            { explanation: 'a test or trial', context: 'This is a test.' }
           ]
         }
       ]

@@ -7,3 +7,31 @@ one:
 two:
   speach_type: verb
   entry: two
+
+speach_verb:
+  speach_type: verb
+  entry: entry_verb
+
+speach_noun:
+  speach_type: noun
+  entry: entry_noun
+
+speach_interjection:
+  speach_type: interjection
+  entry: entry_interjection
+
+speach_adjective:
+  speach_type: adjective
+  entry: entry_adjective
+
+speach_adverb:
+  speach_type: adverb
+  entry: entry_adverb
+
+speach_pronoun:
+  speach_type: pronoun
+  entry: entry_pronoun
+
+speach_default:
+  speach_type: default
+  entry: entry_default
