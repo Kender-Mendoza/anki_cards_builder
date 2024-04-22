@@ -7,3 +7,31 @@ one:
 two:
   term: Hellow
   audio_url: http//example.com
+
+entry_verb:
+  term: entry verb
+  audio_url: http//example.com
+
+entry_noun:
+  term: entry noun
+  audio_url: http//example.com
+
+entry_interjection:
+  term: entry interjection
+  audio_url: http//example.com
+
+entry_adjective:
+  term: entry adjective
+  audio_url: http//example.com
+
+entry_adverb:
+  term: entry adverb
+  audio_url: http//example.com
+
+entry_pronoun:
+  term: entry pronoun
+  audio_url: http//example.com
+
+entry_default:
+  term: entry default
+  audio_url: http//example.com

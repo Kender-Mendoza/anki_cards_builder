@@ -2,6 +2,13 @@
 # frozen_string_literal: true
 
 class History::HistoryComponent < ViewComponent::Base
+  def initialize(history:)
+    super()
+    @history = history
+  end
+
+  private
+
   COLORS = {
     verb: 'text',
     noun: 'link',
@@ -10,13 +17,6 @@ class History::HistoryComponent < ViewComponent::Base
     adverb: 'warning',
     pronoun: 'danger'
   }.freeze
-
-  def initialize(history:)
-    super()
-    @history = history
-  end
-
-  private
 
   attr_reader :history
 
@@ -53,6 +53,6 @@ class History::HistoryComponent < ViewComponent::Base
   def valid_speach_type
     speach_types.find do |speach_type|
       !COLORS[speach_type.to_sym].nil?
-    end.to_sym || :verb
+    end&.to_sym || :verb
   end
 end
