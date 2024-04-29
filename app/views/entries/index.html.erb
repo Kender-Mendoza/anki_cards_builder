@@ -1,31 +1,20 @@
-<div class="mt-2 mb-5">
-  <h1 class="title is-2 has-text-centered"> Anki cards Information </h1>
+<%= render Navbar::NavbarComponent.new %>
+
+<div id="term_container" class="mt-5">
+  <%= render Entry::EntryComponent.new(entry: Entry.first) %>
 </div>
 
-<div class="columns is-multiline">
-  <div class="column is-two-fifths">
-    <div class="columns is-multiline">
-      <div class="column is-full">
-        <%= render Form::FormComponent.new %>
-      </div>
 
-      <div class="column is-full">
-        <div class="columns is-multiline">
-          <%= render History::HistoryComponent.with_collection(Entry.last(8)) %>
-        </div>
-      </div>
-    </div>
+<div class="mt-5">
+  <div class="columns is-multiline">
+    <%= render History::HistoryComponent.with_collection(Entry.last(8)) %>
   </div>
+</div>
 
-  <div class="column is-three-fifths">
-    <div id="term_container">
-      <% if notice %>
-        <div class="notification is-danger is-light">
-          <button class="delete"></button>
-          <p class="subtitle">Error</p>
-          <p> <%= notice %> </p>
-        </div>
-      <% end %>
-    </div>
+<% if notice %>
+  <div class="notification is-danger is-light">
+    <button class="delete"></button>
+    <p class="subtitle">Error</p>
+    <p> <%= notice %> </p>
   </div>
-<div>
+<% end %>

@@ -1,13 +1,21 @@
-  <section>
-    <%= render Entry::Section::SectionComponent.new(name_section: "Term", entry_section: @entry.term) %>
+<div class="card is-shadowless is-full-bordered p-5">
+  <div class="columns is-multiline">
+    <div class="column is-full">
+      <%= render Entry::Section::SectionComponent.new(name_section: "Term", entry_section: @entry.term) %>
+    </div>
 
-    <%= render Entry::Section::SectionComponent.new(name_section: "Audio URL", entry_section: @entry.audio_url) %>
+    <div class="column is-full">
+      <%= render Entry::Section::SectionComponent.new(name_section: "Audio URL", entry_section: @entry.audio_url) %>
+    </div>
 
     <% @entry.part_of_speaches.each do |speache| %>
-        <% speache.definitions.each do |definition| %>
+      <% speache.definitions.each do |definition| %>
+        <div class="column is-full">
           <%= render Entry::Section::SectionComponent.new(name_section: speache.speach_type,
                                                           entry_section: definition.explanation,
                                                           example_section: definition.context) %>
-        <% end %>
+        </div>
+      <% end %>
     <% end %>
-  </section>
+  </div>
+</div>
