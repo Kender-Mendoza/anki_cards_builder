@@ -4,11 +4,23 @@
   <%= render Entry::EntryComponent.new(entry: Entry.first) %>
 </div>
 
-
 <div class="mt-5">
-  <div class="columns is-multiline">
-    <%= render History::HistoryComponent.with_collection(Entry.last(8)) %>
-  </div>
+  <%= turbo_frame_tag "transactions-#{@page.number}" do %>
+
+    <div class="columns is-multiline">
+      <%= render History::HistoryComponent.with_collection(@page.records) %>
+    </div>
+
+    <%= turbo_frame_tag "transactions-#{@page.next_param}" do %>
+      <% unless @page.last? %>
+        <%= link_to "Load More", entries_path(page: @page.next_param) %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <p>
+    Showing page <%= @page.number %> of <%= @page.recordset.page_count %> (<%= @page.recordset.records_count %> total messages):
+  </p>
 </div>
 
 <% if notice %>
