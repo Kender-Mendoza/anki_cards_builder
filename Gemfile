@@ -5,6 +5,7 @@ ruby '3.1.2'
 
 gem 'bootsnap', require: false
 # gem 'dartsass-rails'
+gem 'geared_pagination', '~> 1.2'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'nokogiri'

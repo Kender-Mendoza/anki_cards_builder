@@ -3,6 +3,8 @@
 class EntriesController < ApplicationController # :nodoc:
   def index
     @entries = Entry.all
+
+    set_page_and_extract_portion_from Entry.order(created_at: :desc), per_page: [8]
   end
 
   def show

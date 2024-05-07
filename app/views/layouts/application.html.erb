@@ -5,14 +5,79 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/3ff34fa8d4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
+  <style>
+    .navar-top-stiky,
+    .is-full-bordered {
+      border: 1px solid;
+      border-radius: 20px;
+    }
 
+    .navar-top-stiky {
+      border-top: none;
+    }
+
+    .is-full-bordered {
+      height: 48rem;
+      overflow: scroll;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .navar-top-stiky,
+      .is-full-bordered {
+        border-color: hsl(221, 14%, 24%);
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      .navar-top-stiky,
+      .is-full-bordered {
+        border-color: hsl(221, 14%, 86%);
+      }
+    }
+
+    hr {
+      background: var(--bulma-card-color);
+    }
+
+    p[data-action="click->entry-section#copy"] {
+      display: inline-block;
+    }
+
+    .is-text-primary-on-hover:hover {
+      color: var(--bulma-primary-45);
+    }
+
+    .is-text-text-on-hover:hover {
+      color: var(--bulma-text-45);
+    }
+
+    .is-text-link-on-hover:hover {
+      color: var(--bulma-link-45);
+    }
+
+    .is-text-info-on-hover:hover {
+      color: var(--bulma-info-45);
+    }
+
+    .is-text-success-on-hover:hover {
+      color: var(--bulma-success-45);
+    }
+
+    .is-text-warning-on-hover:hover {
+      color: var(--bulma-warning-45);
+    }
+
+    .is-text-danger-on-hover:hover {
+      color: var(--bulma-danger-45);
+    }
+  </style>
   <body>
     <div class="">
       <%= yield %>

@@ -1,15 +1,17 @@
-<h2 class="subtitle mb-0 is-size-4"> <%= @name_section %>: </h2>
-
-<div class="is-relative is-inline-flex entry-section" data-action="mouseleave->entry-section#setCopyMessage" data-controller="entry-section">
-  <span class="tag is-info entry-section__copy-button" data-entry-section-target="copyMessage"> copy </span>
-  <span class="is-clickable is-size-4" data-action="click->entry-section#copy">
-    <strong> <%= @entry_section  %> </strong>
-  </span>
-  <%= hidden_field_tag input_name, @entry_section, data: { "entry-section-target": "term" } %>
+<div class="card has-background-<%= color %>-90" data-action="mouseleave->section#setCopyMessage" data-controller="section">
+  <div class="card-content">
+    <div class="content">
+      <p class="is-size-5 is-clickable is-text-<%= color %>-on-hover" data-action="click->section#copy">
+        <%= @entry_section  %>
+      <p>
+      <%= hidden_field_tag input_name, @entry_section, data: { "section-target": "term" } %>
+      <span class="is-size-6 is-italic has-text-<%= color %>-45">  <%= @name_section %> </span>
+      <% if example?  %>
+        <hr>
+        <ul>
+          <li> <%= @example_section %> </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<% if example?  %>
-  <p> <strong> Example:</strong> <%= @example_section %> </p>
-<% end %>
-
-<hr>
