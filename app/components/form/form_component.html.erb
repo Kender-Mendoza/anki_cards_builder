@@ -1,7 +1,14 @@
 <%= form_with(url: entries_path, id: "new_entrie_form") do |form| %>
-  <%= form.text_field :term, placeholder: "What do you want to search?", class: "input", data: { "entry-target": "term" } %>
+  <div class="sm:col-span-4">
+    <div class="flex rounded-md shadow-sm sm:max-w-md ring-1 ring-inset ring-gray-300
+                focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600">
 
-  <div class="buttons mt-2">
-    <%= form.submit "Search", class: "button is-primary is-fullwidth" %>
+      <%= form.text_field :term, placeholder: "Search Term",
+                          class: "block flex-1 border-0 bg-transparent py-1.5 px-1 text-slate-100
+                                  placeholder:text-gray-400 placeholder:italic focus:ring-0 sm:text-sm sm:leading-6",
+                          data: { "entry-target": "term" } %>
+
+      <%= form.submit "Search", class: "flex select-none items-center px-3 text-gray-500 sm:text-sm hover:text-slate-100" %>
+    </div>
   </div>
 <% end %>
