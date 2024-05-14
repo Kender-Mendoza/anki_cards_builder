@@ -6,25 +6,12 @@ class Form::FormComponentTest < ViewComponent::TestCase
   test 'render form' do
     form_component = render_inline Form::FormComponent.new
 
-    assert_selector form_selector
-    assert_equal(term_input_html, form_component.css('input.input').to_html)
-    assert_selector 'div.buttons.mt-2'
-    assert_equal(submit_button_html, form_component.css('input.button.is-primary.is-fullwidth').to_html)
+    assert_equal(form_html, form_component.css('form').to_html)
   end
 
   private
 
-  def term_input_html
-    '<input placeholder="What do you want to search?" class="input" ' +
-      'data-entry-target="term" type="text" name="term" id="term">'
-  end
-
-  def submit_button_html
-    '<input type="submit" name="commit" value="Search" ' +
-      'class="button is-primary is-fullwidth" data-disable-with="Search">'
-  end
-
-  def form_selector
-    'form#new_entrie_form[action="/entries"][accept-charset="UTF-8"][method="post"]'
+  def form_html
+    File.read('test/fixtures/files/form_component_html.html').strip
   end
 end
